@@ -9,7 +9,7 @@ public class Incrementator implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 100000000; i++) {
             counter.increment();
         }
     }
