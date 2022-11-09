@@ -15,7 +15,7 @@ public class Guest implements Runnable {
         this.number = number;
     }
 
-    private void ownThings() throws InterruptedException {
+    private void doSomething() throws InterruptedException {
         Thread.sleep(random.nextInt(3000));
     }
 
@@ -29,7 +29,7 @@ public class Guest implements Runnable {
     public void run() {
         while (true) {
             try {
-                ownThings();
+                doSomething();
                 waiter.reserve(pair, number);
                 eat();
                 waiter.free(number);

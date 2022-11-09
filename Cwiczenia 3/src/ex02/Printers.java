@@ -8,7 +8,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Printers {
 
     private final Lock lock = new ReentrantLock();
-    private final Condition notFull = lock.newCondition();
     private final Condition notEmpty = lock.newCondition();
 
     private final boolean[] available;
@@ -23,9 +22,6 @@ public class Printers {
     public void free(int index) throws InterruptedException {
         lock.lock();
         try {
-            while (count >= available.length) {
-                notFull.await();
-            }
             available[index] = true;
             count++;
             notEmpty.signal();
@@ -44,7 +40,6 @@ public class Printers {
             while (!available[index]) index++;
             available[index] = false;
             count--;
-            notFull.signal();
             return index;
         } finally {
             lock.unlock();
