@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Main {
 
-    private static final int bound = 10;
+    private static final int bound = 100;
     private static final int PRODUCERS = 5;
     private static final int CONSUMERS = 5;
 
