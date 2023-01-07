@@ -18,6 +18,7 @@
 **/build
 **/.gradle
 **/bin
+**/target
 
 # AWS User-specific
 .idea/**/aws.xml
